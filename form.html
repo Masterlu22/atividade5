@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: cursive;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        #container-formulario {
+            width: 100%;
+            display: flex;
+            margin: 0 auto;
+            align-items: center;
+            justify-content: center;
+            background-color: blanchedalmond;
+            padding: 20px;
+        }
+
+        form {
+            width: 100%;
+            max-width: 500px;
+            padding: 20px;
+            margin: auto;
+        }
+
+        fieldset {
+            border: 4px solid rgb(44, 43, 43);
+            border-radius: 30px;
+            background-color: #add8e6;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        legend {
+            font-weight: bold;
+            font-size: 18px;
+            background-color: rgb(44, 43, 43);
+            color: #ffffff;
+            padding: 5px 15px;
+            border-radius: 15px;
+        }
+
+        label {
+            font-size: 15px;
+            color: black;
+            display: block;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        .titulo-grupo {
+            font-size: 16px;
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+
+        .grupo-horizontal {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .opcao-unica,
+        .seletor {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            font-weight: normal;
+            margin-top: 0;
+        }
+
+        .opcao-unica {
+            cursor: pointer;
+        }
+
+        input {
+            display: block;
+            margin: 10px auto;
+            border-radius: 40px;
+            box-sizing: border-box;
+            width: 100%;
+            height: 30px;
+            padding: 0 15px;
+        }
+
+        .grupo-horizontal input[type=radio],
+        .grupo-horizontal input[type=checkbox] {
+            display: block;
+            width: auto;
+            height: auto;
+            margin: 0 5px 0 0;
+            transform: translateY(-1px);
+        }
+
+        input:focus {
+            background-color: rgb(190, 233, 219);
+        }
+
+        input[type="text"]:hover,
+        input[type="email"]:hover,
+        input[type="password"]:hover,
+        input[type="date"]:hover,
+        textarea:hover {
+            box-shadow: 2px 2px 4px black;
+        }
+
+        .obrigatorio:invalid {
+            border: 3px solid red;
+        }
+
+        textarea {
+            margin: 10px auto;
+            width: 100%;
+            box-sizing: border-box;
+            height: 150px;
+            border: 2px solid black;
+            resize: vertical;
+        }
+
+        input[type=submit] {
+            width: 100%;
+            max-width: 150px;
+            height: 40px;
+            background-color: white;
+            font-weight: bold;
+            border: none;
+            margin-top: 30px;
+            box-shadow: 2px 2px 4px black;
+        }
+
+        input[type=submit]:hover {
+            background-color: black;
+            color: white;
+        }
+
+        input[type=submit]:focus {
+            box-shadow: none;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        @media screen and (max-width: 600px) {
+
+            label,
+            input[type=text],
+            input[type=submit],
+            select,
+            textarea {
+                flex: 100%;
+                min-width: 100%;
+            }
+        }
+    </style>
+    <title>teste formulário</title>
+</head>
+
+<body>
+    <header>
+        <h1>Formulário de pesquisa Universitária</h1>
+    </header>
+    <main>
+        <div id="container-formulario">
+            <form action="">
+                <fieldset class="dados-pessoais">
+                    <legend>Dados Pessoais</legend>
+                    <label for="nome">Nome completo</label>
+                    <input class="obrigatorio" type="text" id="nome" name="nomeCompleto"
+                        placeholder="Digite aqui seu nome" required>
+                    <label for="email">Email</label>
+                    <input class="obrigatorio" type="email" id="email" name="emailInput"
+                        placeholder="Ex: marcia@gmail.com" required>
+                    <label for="senha">Senha</label>
+                    <input class="obrigatorio" type="password" id="senha" name="senhaInput"
+                        placeholder="Digite aqui sua senha" minlength="8" maxlength="8" required>
+                    <label for="dataNascimento">Data de Nascimento</label>
+                    <input type="date" id="dataNascimento" name="dataNascimento">
+
+                    <h3 id="sexo" class="titulo-grupo">Sexo</h3>
+                    <div class="grupo-horizontal">
+                        <label class="opcao-unica" for="masculino">
+                            <input type="radio" id="masculino" name="sexo">
+                            masculino
+                        </label>
+                        <label class="opcao-unica" for="feminino">
+                            <input type="radio" id="feminino" name="sexo">
+                            feminino
+                        </label>
+                        <label class="opcao-unica" for="lgbtqia">
+                            <input type="radio" id="lgbtqia" name="sexo">
+                            LGBTQIA+
+                        </label>
+                    </div>
+                </fieldset>
+
+                <fieldset class="sobre-o-curso">
+                    <legend>Sobre o curso</legend>
+                    <h3 id="curso" class="titulo-grupo">Curso</h3>
+                    <div class="grupo-horizontal">
+                        <label class="opcao-unica" for="Engenharia-de-software">
+                            <input type="radio" id="Engenharia-de-software" name="curso">
+                            Engenharia de software
+                        </label>
+                        <label class="opcao-unica" for="Ciencia-comp">
+                            <input type="radio" id="Ciencia-comp" name="curso">
+                            Ciência da Computação
+                        </label>
+                        <label class="opcao-unica" for="ads">
+                            <input type="radio" id="ads" name="curso">
+                            Análise e desenvolvimento de Sistemas
+                        </label>
+                    </div>
+
+                    <h3 id="linguagens" class="titulo-grupo">Linguagens de interesse</h3>
+                    <div class="grupo-horizontal">
+                        <label class="seletor" for="python">
+                            <input type="checkbox" id="python" name="interesses">
+                            Python
+                        </label>
+                        <label class="seletor" for="java">
+                            <input type="checkbox" id="java" name="interesses">
+                            Java
+                        </label>
+                        <label class="seletor" for="javascript">
+                            <input type="checkbox" id="javascript" name="interesses">
+                            JavaScript
+                        </label>
+                        <label class="seletor" for="c++">
+                            <input type="checkbox" id="c++" name="interesses">
+                            C++
+                        </label>
+                        <label class="seletor" for="php">
+                            <input type="checkbox" id="php" name="interesses">
+                            PHP
+                        </label>
+                    </div>
+
+                    <label for="comentarios">Comente sua opinião sobre o curso e de sugestões de melhoria</label>
+                    <textarea name="comentarios" id="comentarios" placeholder="Digite aqui seu comentário"
+                        maxlength="1500"></textarea>
+
+                </fieldset>
+                <fieldset class="foto-mural-turma">
+                    <legend>Foto para Mural</legend>
+                    <label for="foto">Insira uma foto sua para que possamos colocar no mural de sua turma</label>
+                    <input type="file" id="foto" name="fotoInput">
+                </fieldset>
+                <input type="submit" value="Enviar">
+
+            </form>
+        </div>
+    </main>
+    <footer>&copy; Desenvolvido por Lucas da Silva Rocha</footer>
+</body>
